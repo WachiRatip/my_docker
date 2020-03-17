@@ -1,0 +1,14 @@
+# build docker image
+docker build -t python377:1.0.0 .
+
+# run container
+## for Windows
+docker run -p 8888:8888 --name container_python377 -v ${pwd}\source:/home  python377:1.0.0
+## for MacOS/Linux
+docker run -p 8888:8888 --name container_python377 -v $(pwd)/source:/home  python377:1.0.0
+
+# delete container, image and volume
+docker stop $(docker ps -aq)
+docker rm -f $(docker ps -aq)
+docker image prune -a -f
+docker volume prune -f
