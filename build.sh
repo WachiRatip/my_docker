@@ -1,3 +1,4 @@
+#!/bin/bash
 # build docker image
 docker build -t python377:1.0.0 . &&
 
